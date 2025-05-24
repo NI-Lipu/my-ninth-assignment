@@ -4,9 +4,9 @@ const Login = () => {
    return (
       <>
          <div className="hero max-w-7xl mx-auto my-10">
-            <div className="hero-content border-2 border-[#a78cdd] flex-col lg:flex-row-reverse">
+            <div className="hero-content border-2 border-[#a78cdd] flex-col md:flex-row-reverse">
                <div className="text-center lg:text-left">
-                  <img className="max-w-96" src={loginImg} alt="" />
+                  <img className="md:max-w-96" src={loginImg} alt="" />
                </div>
                <div className="card w-full">
                   <div className="pl-6">
