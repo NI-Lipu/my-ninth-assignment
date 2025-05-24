@@ -4,7 +4,8 @@ import { useContext } from 'react'
 import { AuthContext } from '../../provider/AuthProvider'
 
 const Register = () => {
-   const { handleGoogleLogin, setUser } = useContext(AuthContext)
+   const { handleGoogleLogin, setUser, handleRegister, handleProfile } =
+      useContext(AuthContext)
 
    // Google Login
    const GoogleLogin = () => {
@@ -12,6 +13,28 @@ const Register = () => {
          .then((result) => {
             const user = result.user
             setUser(user)
+         })
+         .catch((error) => {
+            const errorMessage = error.errorMessage
+            console.log(errorMessage)
+         })
+   }
+
+   // Register
+   const handleRegisterForm = (e) => {
+      e.preventDefault()
+      const name = e.target.name.value
+      const email = e.target.email.value
+      const photo = e.target.photo.value
+      const password = e.target.password.value
+      // console.log(name, email, photo, password)
+
+      handleRegister(email, password)
+         .then((result) => {
+            const user = result.user
+            setUser(user)
+            handleProfile({ displayName: name, photoURL: photo })
+            // console.log(user)
          })
          .catch((error) => {
             const errorMessage = error.errorMessage
@@ -36,13 +59,14 @@ const Register = () => {
                         Please enter your details
                      </p>
                   </div>
-                  <form className="card-body">
+                  <form onSubmit={handleRegisterForm} className="card-body">
                      <div className="form-control">
                         <label className="label">
                            <span className="label-text text-black">Name</span>
                         </label>
                         <input
                            type="text"
+                           name="name"
                            placeholder="name"
                            className="input w-full input-bordered"
                            required
@@ -54,6 +78,7 @@ const Register = () => {
                         </label>
                         <input
                            type="email"
+                           name="email"
                            placeholder="email"
                            className="input w-full input-bordered"
                            required
@@ -67,6 +92,7 @@ const Register = () => {
                         </label>
                         <input
                            type="url"
+                           name="photo"
                            placeholder="photo"
                            className="input w-full input-bordered"
                            required
@@ -80,6 +106,7 @@ const Register = () => {
                         </label>
                         <input
                            type="password"
+                           name="password"
                            placeholder="password"
                            className="input w-full input-bordered"
                            required

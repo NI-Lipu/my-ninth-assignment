@@ -78,7 +78,7 @@ const Navbar = () => {
                      <div tabIndex={0} className="cursor-pointer">
                         <img
                            src={user?.photoURL}
-                           className="rounded-full w-16 border-2 border-white"
+                           className="rounded-full w-16 h-16 border-2 border-white"
                            alt="Profile"
                         />
                      </div>
@@ -89,7 +89,7 @@ const Navbar = () => {
                         <div className="text-center">
                            <img
                               src={user?.photoURL}
-                              className="w-40 rounded-lg mx-auto mb-2"
+                              className="w-40 h-48 rounded-lg mx-auto mb-2"
                            />
                            <h3 className="text-lg font-semibold">
                               {user?.displayName}
