@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import loginImg from '../../assets/login.jpg'
 import { useContext, useState } from 'react'
 import { AuthContext } from '../../provider/AuthProvider'
@@ -6,6 +6,9 @@ const Login = () => {
    const { handleGoogleLogin, setUser, handleEmailPasswordLogin } =
       useContext(AuthContext)
    const [error, setError] = useState('')
+   const location = useLocation()
+   const navigate = useNavigate()
+   // console.log(location.state)
 
    // GoogleLogin
    const GoogleLogin = () => {
@@ -13,6 +16,11 @@ const Login = () => {
          .then((result) => {
             const user = result.user
             setUser(user)
+            if (location.state) {
+               navigate(location.state)
+            } else {
+               navigate('/')
+            }
          })
          .catch((error) => {
             const errorMessage = error.errorMessage
@@ -30,6 +38,11 @@ const Login = () => {
          .then((result) => {
             const user = result.user
             setUser(user)
+            if (location.state) {
+               navigate('/location.state')
+            } else {
+               navigate('/')
+            }
          })
          .catch((error) => {
             const message = error.message

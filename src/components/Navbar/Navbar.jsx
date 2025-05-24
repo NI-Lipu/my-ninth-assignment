@@ -102,12 +102,14 @@ const Navbar = () => {
                            >
                               Update profile
                            </Link>
-                           <button
-                              onClick={handleLogout}
-                              className="mt-3 bg-red-600 hover:bg-red-700 px-4 py-1 rounded text-white text-sm"
-                           >
-                              Sign Out
-                           </button>
+                           <Link to={'/'}>
+                              <button
+                                 onClick={handleLogout}
+                                 className="mt-3 bg-red-600 hover:bg-red-700 px-4 py-1 rounded text-white text-sm"
+                              >
+                                 Sign Out
+                              </button>
+                           </Link>
                         </div>
                      </div>
                   </div>

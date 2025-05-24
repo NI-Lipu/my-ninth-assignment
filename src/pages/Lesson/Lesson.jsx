@@ -1,11 +1,13 @@
 import { Link, useLoaderData, useLocation } from 'react-router-dom'
 import LessonCard from '../../components/LessonCard/LessonCard'
-import Modal from '../../components/Modal/Modal'
+// import { useContext } from 'react'
+// import { AuthContext } from '../../provider/AuthProvider'
 
 const Lesson = () => {
    const data = useLoaderData()
    const { pathname } = useLocation()
    const lesson = Number(pathname.slice(8, 10))
+
    // console.log(data, pathname, lesson)
    return (
       <>

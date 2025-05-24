@@ -7,6 +7,7 @@ import Lesson from '../pages/Lesson/Lesson'
 import Modal from '../components/Modal/Modal'
 import Login from '../pages/Login/Login'
 import Register from '../pages/Register/Register'
+import PrivetRoute from './PrivetRoute'
 
 const router = createBrowserRouter([
    {
@@ -28,7 +29,11 @@ const router = createBrowserRouter([
          },
          {
             path: '/lesson/:id',
-            element: <Lesson></Lesson>,
+            element: (
+               <PrivetRoute>
+                  <Lesson></Lesson>
+               </PrivetRoute>
+            ),
             loader: async ({ params }) => {
                const allVocab = await fetch('/words.json')
                const allVocabData = await allVocab.json()
