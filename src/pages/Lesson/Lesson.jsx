@@ -1,4 +1,4 @@
-import { useLoaderData, useLocation } from 'react-router-dom'
+import { Link, useLoaderData, useLocation } from 'react-router-dom'
 import LessonCard from '../../components/LessonCard/LessonCard'
 import Modal from '../../components/Modal/Modal'
 
@@ -17,6 +17,11 @@ const Lesson = () => {
                <LessonCard singleData={singleData}></LessonCard>
             ))}
          </div>
+         <Link to={'/learning'}>
+            <button className="btn text-white block bg-blue-900 mx-auto mb-10 mt-14">
+               Back to Lesson
+            </button>
+         </Link>
       </>
    )
 }
