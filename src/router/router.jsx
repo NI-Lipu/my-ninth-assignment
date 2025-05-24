@@ -1,8 +1,12 @@
-import { createBrowserRouter } from 'react-router-dom'
+import { createBrowserRouter, data } from 'react-router-dom'
 import MainLayout from '../layouts/MainLayout'
 import Home from '../pages/Home/Home'
 import AboutUs from '../pages/AboutUs/AboutUs'
 import Learn from '../pages/Learn/Learn'
+import Lesson from '../pages/Lesson/Lesson'
+import Modal from '../components/Modal/Modal'
+import Login from '../pages/Login/Login'
+import Register from '../pages/Register/Register'
 
 const router = createBrowserRouter([
    {
@@ -18,9 +22,30 @@ const router = createBrowserRouter([
             element: <AboutUs></AboutUs>,
          },
          {
-            path: 'learning',
+            path: '/learning',
             element: <Learn></Learn>,
             loader: () => fetch('/words.json'),
+         },
+         {
+            path: '/lesson/:id',
+            element: <Lesson></Lesson>,
+            loader: async ({ params }) => {
+               const allVocab = await fetch('/words.json')
+               const allVocabData = await allVocab.json()
+
+               const lessonData = allVocabData.filter(
+                  (data) => data.lesson_no == params.id
+               )
+               return lessonData
+            },
+         },
+         {
+            path: '/login',
+            element: <Login></Login>,
+         },
+         {
+            path: '/register',
+            element: <Register></Register>,
          },
       ],
    },

@@ -17,7 +17,7 @@ const Learn = () => {
                   data={singleData}
                   className="bg-blue-900 p-5 text-white font-bold text-2xl text-center"
                >
-                  {singleData}
+                  Lesson: {singleData}
                </Link>
             ))}
          </div>
