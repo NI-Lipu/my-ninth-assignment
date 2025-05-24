@@ -1,10 +1,13 @@
 import { Link } from 'react-router-dom'
 import loginImg from '../../assets/login.jpg'
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 import { AuthContext } from '../../provider/AuthProvider'
 const Login = () => {
-   const { handleGoogleLogin, setUser } = useContext(AuthContext)
+   const { handleGoogleLogin, setUser, handleEmailPasswordLogin } =
+      useContext(AuthContext)
+   const [error, setError] = useState('')
 
+   // GoogleLogin
    const GoogleLogin = () => {
       handleGoogleLogin()
          .then((result) => {
@@ -14,6 +17,25 @@ const Login = () => {
          .catch((error) => {
             const errorMessage = error.errorMessage
             console.log(errorMessage)
+         })
+   }
+
+   // handleEmailPasswordLogin
+   const handleEmAndPassLogin = (e) => {
+      e.preventDefault()
+      setError('')
+      const email = e.target.email.value
+      const password = e.target.password.value
+      handleEmailPasswordLogin(email, password)
+         .then((result) => {
+            const user = result.user
+            setUser(user)
+         })
+         .catch((error) => {
+            const message = error.message
+            if (message) {
+               setError('Your Email or Password is wrong')
+            }
          })
    }
    return (
@@ -30,13 +52,14 @@ const Login = () => {
                         Please enter your details
                      </p>
                   </div>
-                  <form className="card-body">
+                  <form onSubmit={handleEmAndPassLogin} className="card-body">
                      <div className="form-control">
                         <label className="label">
                            <span className="label-text text-black">Email</span>
                         </label>
                         <input
                            type="email"
+                           name="email"
                            placeholder="email"
                            className="input input-bordered"
                            required
@@ -50,6 +73,7 @@ const Login = () => {
                         </label>
                         <input
                            type="password"
+                           name="password"
                            placeholder="password"
                            className="input input-bordered"
                            required
@@ -63,6 +87,11 @@ const Login = () => {
                            </a>
                         </label>
                      </div>
+                     {error && (
+                        <p className="font-medium text-red-500 text-sm">
+                           {error}
+                        </p>
+                     )}
                      <div className="form-control mt-6 pr-7">
                         <button className="btn text-white w-full bg-[#54407e]">
                            Login

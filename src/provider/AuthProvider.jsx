@@ -4,6 +4,7 @@ import {
    getAuth,
    GoogleAuthProvider,
    onAuthStateChanged,
+   signInWithEmailAndPassword,
    signInWithPopup,
    signOut,
    updateProfile,
@@ -29,6 +30,11 @@ const AuthProvider = ({ children }) => {
       return createUserWithEmailAndPassword(auth, email, password)
    }
 
+   // Handle Login
+   const handleEmailPasswordLogin = (email, password) => {
+      return signInWithEmailAndPassword(auth, email, password)
+   }
+
    // Update Profile
    const handleProfile = (obj) => {
       return updateProfile(auth.currentUser, obj)
@@ -47,6 +53,7 @@ const AuthProvider = ({ children }) => {
       logOut,
       handleRegister,
       handleProfile,
+      handleEmailPasswordLogin,
    }
 
    useEffect(() => {
