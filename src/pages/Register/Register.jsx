@@ -1,11 +1,13 @@
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import registerImg from '../../assets/3783954-ezgif.com-webp-to-jpg-converter.jpg'
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 import { AuthContext } from '../../provider/AuthProvider'
 
 const Register = () => {
    const { handleGoogleLogin, setUser, handleRegister, handleProfile } =
       useContext(AuthContext)
+   const navigate = useNavigate()
+   const [error, setError] = useState('')
 
    // Google Login
    const GoogleLogin = () => {
@@ -29,15 +31,37 @@ const Register = () => {
       const password = e.target.password.value
       // console.log(name, email, photo, password)
 
+      setError('')
+      if (password.length < 6) {
+         setError('Password should be at least 6 characters long')
+         return
+      }
+      if (!/[A-Z]/.test(password)) {
+         setError('Password must contain at least one uppercase letter')
+         return
+      }
+      if (!/[a-z]/.test(password)) {
+         setError('Password must contain at least one lowercase letter')
+         return
+      }
+
       handleRegister(email, password)
          .then((result) => {
             const user = result.user
             setUser(user)
             handleProfile({ displayName: name, photoURL: photo })
+            alert('Account has successfully created')
+            navigate('/')
             // console.log(user)
          })
          .catch((error) => {
-            const errorMessage = error.errorMessage
+            const errorMessage = error.message
+
+            if (
+               errorMessage === 'Firebase: Error (auth/email-already-in-use).'
+            ) {
+               setError('The email has already used!')
+            }
             console.log(errorMessage)
          })
    }
@@ -112,6 +136,11 @@ const Register = () => {
                            required
                         />
                      </div>
+                     {error && (
+                        <p className="font-medium text-red-500 text-sm">
+                           {error}
+                        </p>
+                     )}
                      <div className="form-control mt-6">
                         <button className="btn text-white w-full bg-[#54407e]">
                            Register

@@ -73,11 +73,11 @@ const Navbar = () => {
          <div className="navbar-end">
             {user ? (
                <div className="flex items-center gap-2">
-                  <p className="font-medium text-lg">Hi, {user?.displayName}</p>
+                  <p className="font-medium text-lg">Hi, {user.displayName}</p>
                   <div className="dropdown">
                      <div tabIndex={0} className="cursor-pointer">
                         <img
-                           src={user?.photoURL}
+                           src={user.photoURL}
                            className="rounded-full w-16 h-16 border-2 border-white"
                            alt="Profile"
                         />
