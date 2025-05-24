@@ -1,6 +1,23 @@
-import { Link, NavLink } from 'react-router-dom'
+import { useContext } from 'react'
+import { Link, NavLink, useNavigate } from 'react-router-dom'
+import { AuthContext } from '../../provider/AuthProvider'
 
 const Navbar = () => {
+   const { user, logOut, setUser } = useContext(AuthContext)
+   const navigate = useNavigate()
+
+   const handleLogout = () => {
+      logOut()
+         .then(() => {
+            setUser(null)
+            alert('Log-out success full')
+            navigate('/')
+         })
+         .catch((error) => {
+            console.error(error)
+            alert('Failed to log out. Please try again.')
+         })
+   }
    const links = (
       <>
          <li>
@@ -18,7 +35,7 @@ const Navbar = () => {
       </>
    )
    return (
-      <div className="navbar py-8 px-8 bg-blue-950 text-white">
+      <div className="navbar py-5 px-8 bg-blue-950 text-white">
          <div className="navbar-start">
             <div className="dropdown">
                <div
@@ -54,15 +71,52 @@ const Navbar = () => {
             <ul className="menu menu-horizontal px-1">{links}</ul>
          </div>
          <div className="navbar-end">
-            {/* {user ? (
-               <Link to={'/'} onClick={logOut} className="btn">
-                  Log Out
+            {user ? (
+               <div className="flex items-center gap-2">
+                  <p className="font-medium text-lg">Hi, {user?.displayName}</p>
+                  <div className="dropdown">
+                     <div tabIndex={0} className="cursor-pointer">
+                        <img
+                           src={user?.photoURL}
+                           className="rounded-full w-16 border-2 border-white"
+                           alt="Profile"
+                        />
+                     </div>
+                     <div
+                        tabIndex={0}
+                        className="dropdown-content -left-40 bg-blue-950 rounded-box z-50 mt-3 p-4 shadow-lg w-64 text-white"
+                     >
+                        <div className="text-center">
+                           <img
+                              src={user?.photoURL}
+                              className="w-40 rounded-lg mx-auto mb-2"
+                           />
+                           <h3 className="text-lg font-semibold">
+                              {user?.displayName}
+                           </h3>
+                           <p className="text-sm">{user?.email}</p>
+                           <hr className="my-2 border-gray-600" />
+                           <Link
+                              to="/profile"
+                              className="block mt-2 text-blue-400 text-sm"
+                           >
+                              Update profile
+                           </Link>
+                           <button
+                              onClick={handleLogout}
+                              className="mt-3 bg-red-600 hover:bg-red-700 px-4 py-1 rounded text-white text-sm"
+                           >
+                              Sign Out
+                           </button>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            ) : (
+               <Link to={'/login'} className="btn">
+                  Login
                </Link>
-            ) : ( */}
-            <Link to={'/login'} className="btn">
-               Login
-            </Link>
-            {/* )} */}
+            )}
          </div>
       </div>
    )

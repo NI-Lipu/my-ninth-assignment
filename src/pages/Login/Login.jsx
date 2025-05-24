@@ -1,6 +1,21 @@
 import { Link } from 'react-router-dom'
 import loginImg from '../../assets/login.jpg'
+import { useContext } from 'react'
+import { AuthContext } from '../../provider/AuthProvider'
 const Login = () => {
+   const { handleGoogleLogin, setUser } = useContext(AuthContext)
+
+   const GoogleLogin = () => {
+      handleGoogleLogin()
+         .then((result) => {
+            const user = result.user
+            setUser(user)
+         })
+         .catch((error) => {
+            const errorMessage = error.errorMessage
+            console.log(errorMessage)
+         })
+   }
    return (
       <>
          <div className="hero max-w-7xl mx-auto my-10">
@@ -55,7 +70,9 @@ const Login = () => {
                      </div>
                   </form>
                   <div className="ml-6 mr-14">
-                     <button className="btn w-full">Login with Google</button>
+                     <button onClick={GoogleLogin} className="btn w-full">
+                        Login with Google
+                     </button>
                      <Link to={'/register'} className="text-center block mt-4">
                         Don't have an account?
                         <span className="text-[#7c60b9] underline font-medium ml-1">

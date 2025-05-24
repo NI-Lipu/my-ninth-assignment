@@ -1,7 +1,23 @@
 import { Link } from 'react-router-dom'
 import registerImg from '../../assets/3783954-ezgif.com-webp-to-jpg-converter.jpg'
+import { useContext } from 'react'
+import { AuthContext } from '../../provider/AuthProvider'
 
 const Register = () => {
+   const { handleGoogleLogin, setUser } = useContext(AuthContext)
+
+   // Google Login
+   const GoogleLogin = () => {
+      handleGoogleLogin()
+         .then((result) => {
+            const user = result.user
+            setUser(user)
+         })
+         .catch((error) => {
+            const errorMessage = error.errorMessage
+            console.log(errorMessage)
+         })
+   }
    return (
       <>
          <div className="hero max-w-7xl mx-auto my-10">
@@ -76,7 +92,7 @@ const Register = () => {
                      </div>
                   </form>
                   <div className="ml-6 flex pr-7 flex-col">
-                     <button className="btn w-full ">
+                     <button onClick={GoogleLogin} className="btn w-full ">
                         Register with Google
                      </button>
                      <Link to={'/login'} className="text-center mt-2">
