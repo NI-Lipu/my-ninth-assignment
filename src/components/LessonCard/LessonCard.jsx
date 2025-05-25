@@ -1,7 +1,7 @@
-import { Link } from 'react-router-dom'
 import Modal from '../Modal/Modal'
 
 const LessonCard = ({ singleData }) => {
+   // const params = useParams()
    const {
       difficulty,
       example,
@@ -13,7 +13,7 @@ const LessonCard = ({ singleData }) => {
       when_to_say,
       word,
    } = singleData
-   // console.log(Array.isArray(allData))
+   // console.log(params)
    return (
       <div
          className={`${
@@ -38,18 +38,18 @@ const LessonCard = ({ singleData }) => {
                {part_of_speech}
             </p>
             <div className="card-actions">
-               <Link
-                  to={''}
+               <button
+                  // to={`/lesson/${lesson_no}/${id}`}
                   onClick={() =>
                      document.getElementById('my_modal_5').showModal()
                   }
                   className="btn"
                >
                   When to say
-               </Link>
+               </button>
             </div>
          </div>
-         <Modal></Modal>
+         <Modal singleData={singleData}></Modal>
       </div>
    )
 }

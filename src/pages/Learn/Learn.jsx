@@ -5,6 +5,8 @@ const Learn = () => {
    const lesson = [...new Set(data.map((a) => a.lesson_no))].sort(
       (a, b) => a - b
    )
+   console.log(data)
+   console.log(lesson)
 
    return (
       <div className="max-w-7xl mx-auto mb-14">
