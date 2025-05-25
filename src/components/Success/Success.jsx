@@ -10,7 +10,7 @@ const Success = () => {
                   Total Users
                </div>
                <div className="text-white stat-value">
-                  <CountUp end={31000} duration={3} separator="," />
+                  <CountUp end={31000} duration={4} separator="," />
                </div>
             </div>
 
@@ -19,7 +19,7 @@ const Success = () => {
                   Lesson
                </div>
                <div className="stat-value text-secondary">
-                  <CountUp end={10} duration={3} separator="," />
+                  <CountUp end={10} duration={4} separator="," />
                </div>
             </div>
 
@@ -28,7 +28,7 @@ const Success = () => {
                   Vocabulary
                </div>
                <div className="text-white stat-value">
-                  <CountUp end={300} duration={3} separator="," />
+                  <CountUp end={300} duration={4} separator="," />
                </div>
             </div>
 
@@ -37,7 +37,7 @@ const Success = () => {
                   Tutorials
                </div>
                <div className="stat-value text-secondary">
-                  <CountUp end={300} duration={3} separator="," />
+                  <CountUp end={300} duration={4} separator="," />
                </div>
             </div>
          </div>

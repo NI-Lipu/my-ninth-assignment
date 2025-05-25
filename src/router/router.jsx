@@ -8,6 +8,7 @@ import Modal from '../components/Modal/Modal'
 import Login from '../pages/Login/Login'
 import Register from '../pages/Register/Register'
 import PrivetRoute from './PrivetRoute'
+import Tutorials from '../pages/Tutorials/Tutorials'
 
 const router = createBrowserRouter([
    {
@@ -51,6 +52,14 @@ const router = createBrowserRouter([
          {
             path: '/register',
             element: <Register></Register>,
+         },
+         {
+            path: '/tutorials',
+            element: (
+               <PrivetRoute>
+                  <Tutorials></Tutorials>
+               </PrivetRoute>
+            ),
          },
       ],
    },
