@@ -2,8 +2,10 @@ import CountUp from 'react-countup'
 
 const Success = () => {
    return (
-      <div className="mb-10 max-w-7xl mx-auto ">
-         <h2 className="font-bold text-3xl text-center mb-7">Success</h2>
+      <div className="mb-20 mt-20 max-w-7xl mx-auto ">
+         <h2 className="font-bold text-3xl text-center mb-7 underline">
+            Success
+         </h2>
          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-[1px]">
             <div className="stat bg-blue-900 place-items-center text-white">
                <div className="text-white stat-title font-medium text-lg">

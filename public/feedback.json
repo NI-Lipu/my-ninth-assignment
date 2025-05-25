@@ -1,0 +1,58 @@
+[
+   {
+      "feedbackId": 1,
+      "name": "James Anderson",
+      "image": "https://i.ibb.co.com/gb6yWxWv/premium-photo-1672239496290-5061cfee7ebb.jpg",
+      "feedback": "The vocabulary lists are well-structured and easy to memorize. I love the pronunciation feature!",
+      "date": "2025-04-12",
+      "rating": 5
+   },
+   {
+      "feedbackId": 3,
+      "name": "Liam Walker",
+      "image": "https://i.ibb.co.com/4nbPFgbN/photo-1519085360753-af0119f7cbe7.jpg",
+      "feedback": "This site makes learning Japanese so fun! The words stick with me thanks to the audio and visuals.",
+      "date": "2025-02-16",
+      "rating": 5
+   },
+   {
+      "feedbackId": 4,
+      "name": "Michael Brown",
+      "image": "https://i.ibb.co.com/RK8Mrxp/photo-1508341591423-4347099e1f19.jpg",
+      "feedback": "Great experience using this site. I review new words every day and my vocabulary is improving quickly.",
+      "date": "2025-04-04",
+      "rating": 4
+   },
+   {
+      "feedbackId": 5,
+      "name": "Ethan Brooks",
+      "image": "https://i.ibb.co.com/RG9RtGDV/photo-1507003211169-0a1dd7228f2d.jpg",
+      "feedback": "My son uses this for daily practice. It’s very child-friendly and engaging. Perfect for beginners too!",
+      "date": "2025-01-30",
+      "rating": 5
+   },
+   {
+      "feedbackId": 6,
+      "name": "Daniel Kim",
+      "image": "https://i.ibb.co.com/gbw5tXk5/photo-1534030347209-467a5b0ad3e6.jpg",
+      "feedback": "I enjoy the clear word breakdowns and audio support. A very effective tool for learning Japanese words.",
+      "date": "2025-04-22",
+      "rating": 4
+   },
+   {
+      "feedbackId": 7,
+      "name": "Noah Bennett",
+      "image": "https://i.ibb.co.com/ZzJH0GcZ/photo-1610088441520-4352457e7095.jpg",
+      "feedback": "Amazing site! The way it teaches vocabulary is interactive and memorable. I recommend it to all learners.",
+      "date": "2025-03-10",
+      "rating": 5
+   },
+   {
+      "feedbackId": 8,
+      "name": "David Clark",
+      "image": "https://i.ibb.co.com/C3cvk72y/photo-1506794778202-cad84cf45f1d.jpg",
+      "feedback": "Very beginner-friendly and well-organized. I’ve learned more in a week than I did with books.",
+      "date": "2025-02-05",
+      "rating": 4
+   }
+]
