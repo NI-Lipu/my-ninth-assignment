@@ -15,6 +15,7 @@ const Register = () => {
          .then((result) => {
             const user = result.user
             setUser(user)
+            navigate('/')
          })
          .catch((error) => {
             const errorMessage = error.errorMessage

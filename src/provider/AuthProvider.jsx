@@ -4,6 +4,7 @@ import {
    getAuth,
    GoogleAuthProvider,
    onAuthStateChanged,
+   sendPasswordResetEmail,
    signInWithEmailAndPassword,
    signInWithPopup,
    signOut,
@@ -18,7 +19,7 @@ const AuthProvider = ({ children }) => {
    const [user, setUser] = useState(null)
    const [loading, setLoading] = useState(true)
 
-   console.log(user)
+   // console.log(user)
 
    // Google Login
    const handleGoogleLogin = () => {
@@ -42,6 +43,11 @@ const AuthProvider = ({ children }) => {
       })
    }
 
+   // Password Reset
+   const handlePasswordReset = (email) => {
+      return sendPasswordResetEmail(auth, email)
+   }
+
    // Log Out
    const logOut = () => {
       return signOut(auth)
@@ -56,6 +62,7 @@ const AuthProvider = ({ children }) => {
       handleRegister,
       handleProfile,
       handleEmailPasswordLogin,
+      handlePasswordReset,
    }
 
    useEffect(() => {

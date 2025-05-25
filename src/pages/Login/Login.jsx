@@ -1,13 +1,20 @@
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import loginImg from '../../assets/login.jpg'
-import { useContext, useState } from 'react'
+import { useContext, useRef, useState } from 'react'
 import { AuthContext } from '../../provider/AuthProvider'
+// import { useRef } from 'react'
+
 const Login = () => {
-   const { handleGoogleLogin, setUser, handleEmailPasswordLogin } =
-      useContext(AuthContext)
+   const {
+      handleGoogleLogin,
+      setUser,
+      handleEmailPasswordLogin,
+      handlePasswordReset,
+   } = useContext(AuthContext)
    const [error, setError] = useState('')
    const location = useLocation()
    const navigate = useNavigate()
+   const emailRef = useRef()
    // console.log(location.state)
 
    // GoogleLogin
@@ -34,6 +41,7 @@ const Login = () => {
       setError('')
       const email = e.target.email.value
       const password = e.target.password.value
+
       handleEmailPasswordLogin(email, password)
          .then((result) => {
             const user = result.user
@@ -47,8 +55,27 @@ const Login = () => {
          .catch((error) => {
             const message = error.message
             if (message) {
-               setError('Your Email or Password is wrong')
+               setError('Your email or password is invalid.')
             }
+         })
+   }
+
+   // handleForgotPassword
+   const handleForgotPassword = () => {
+      const email = emailRef.current.value
+      if (!email) {
+         return alert('Please Input a valid email')
+      }
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+         return alert('Please enter a valid email address.')
+      }
+      handlePasswordReset(email)
+         .then(() => {
+            alert('Reset link sent to your email.')
+         })
+         .catch((error) => {
+            console.error(error)
+            alert('Failed to send reset email.')
          })
    }
    return (
@@ -72,6 +99,7 @@ const Login = () => {
                         </label>
                         <input
                            type="email"
+                           ref={emailRef}
                            name="email"
                            placeholder="email"
                            className="input input-bordered"
@@ -92,12 +120,12 @@ const Login = () => {
                            required
                         />
                         <label className="label">
-                           <a
-                              href="#"
+                           <Link
+                              onClick={handleForgotPassword}
                               className="label-text-alt text-black link link-hover"
                            >
                               Forgot password?
-                           </a>
+                           </Link>
                         </label>
                      </div>
                      {error && (

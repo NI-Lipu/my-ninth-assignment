@@ -32,10 +32,9 @@ const Learn = () => {
                   className="w-full h-64 md:h-96"
                   src="https://www.youtube.com/embed/2qk4gCZuSjk?si=PgBPSJREArADuhE3"
                   title="YouTube video player"
-                  frameborder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  referrerpolicy="strict-origin-when-cross-origin"
-                  allowFullscreen
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  allowFullScreen
                ></iframe>
             </div>
          </div>
