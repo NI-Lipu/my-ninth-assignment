@@ -1,12 +1,11 @@
 import { useContext } from 'react'
-import { Link, NavLink, useNavigate } from 'react-router-dom'
+import { Link, Navigate, NavLink } from 'react-router-dom'
 import { AuthContext } from '../../provider/AuthProvider'
 
 import { toast } from 'react-toastify'
 
 const Navbar = () => {
    const { user, logOut, setUser } = useContext(AuthContext)
-   const navigate = useNavigate()
 
    const handleLogout = () => {
       logOut()
@@ -14,7 +13,6 @@ const Navbar = () => {
             setUser(null)
 
             toast.success('Log-out successfully!')
-            navigate('/')
          })
          .catch((error) => {
             console.error(error)
@@ -110,6 +108,7 @@ const Navbar = () => {
                            >
                               Update profile
                            </Link>
+
                            <Link to={'/'}>
                               <button
                                  onClick={handleLogout}
