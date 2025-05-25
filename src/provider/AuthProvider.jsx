@@ -37,7 +37,9 @@ const AuthProvider = ({ children }) => {
 
    // Update Profile
    const handleProfile = (obj) => {
-      return updateProfile(auth.currentUser, obj)
+      return updateProfile(auth.currentUser, obj).then(() => {
+         setUser({ ...auth.currentUser })
+      })
    }
 
    // Log Out

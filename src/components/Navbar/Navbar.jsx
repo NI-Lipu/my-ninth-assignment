@@ -1,6 +1,7 @@
 import { useContext } from 'react'
 import { Link, NavLink, useNavigate } from 'react-router-dom'
 import { AuthContext } from '../../provider/AuthProvider'
+import UpdateProfileModal from '../UpdateProfileModal/UpdateProfileModal'
 
 const Navbar = () => {
    const { user, logOut, setUser } = useContext(AuthContext)
@@ -97,7 +98,11 @@ const Navbar = () => {
                            <p className="text-sm">{user?.email}</p>
                            <hr className="my-2 border-gray-600" />
                            <Link
-                              to="/profile"
+                              onClick={() =>
+                                 document
+                                    .getElementById('my_modal_6')
+                                    .showModal()
+                              }
                               className="block mt-2 text-blue-400 text-sm"
                            >
                               Update profile
