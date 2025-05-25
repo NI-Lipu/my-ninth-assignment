@@ -9,11 +9,13 @@ import Login from '../pages/Login/Login'
 import Register from '../pages/Register/Register'
 import PrivetRoute from './PrivetRoute'
 import Tutorials from '../pages/Tutorials/Tutorials'
+import ErrorPage from '../components/ErrorPage/ErrorPage'
 
 const router = createBrowserRouter([
    {
       path: '/',
       element: <MainLayout></MainLayout>,
+      errorElement: <ErrorPage></ErrorPage>,
       children: [
          {
             path: '/',
