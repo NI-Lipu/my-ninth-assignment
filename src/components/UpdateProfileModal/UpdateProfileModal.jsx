@@ -1,5 +1,6 @@
 import { useContext } from 'react'
 import { AuthContext } from '../../provider/AuthProvider'
+import { toast } from 'react-toastify'
 
 const UpdateProfileModal = () => {
    const { handleProfile } = useContext(AuthContext)
@@ -11,14 +12,15 @@ const UpdateProfileModal = () => {
       // console.log(name, photo)
       handleProfile({ displayName: name, photoURL: photo })
          .then(() => {
-            alert('Profile updated successfully!')
+            toast.success('Profile updated successfully!')
             const modal = document.getElementById('my_modal_6')
             modal.close()
             e.target.reset()
          })
          .catch((error) => {
             console.error('ERROR:', error)
-            alert('Failed to update Profile.Please try again')
+
+            toast.error('Failed to update Profile.Please try again!')
          })
    }
 

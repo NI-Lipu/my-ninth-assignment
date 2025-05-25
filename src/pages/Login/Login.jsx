@@ -2,6 +2,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom'
 import loginImg from '../../assets/login.jpg'
 import { useContext, useRef, useState } from 'react'
 import { AuthContext } from '../../provider/AuthProvider'
+import { toast } from 'react-toastify'
 // import { useRef } from 'react'
 
 const Login = () => {
@@ -64,18 +65,19 @@ const Login = () => {
    const handleForgotPassword = () => {
       const email = emailRef.current.value
       if (!email) {
-         return alert('Please Input a valid email')
+         return toast.error('Please Input email!')
       }
       if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-         return alert('Please enter a valid email address.')
+         return toast.error('Please enter a valid email address!')
       }
       handlePasswordReset(email)
          .then(() => {
-            alert('Reset link sent to your email.')
+            toast.success('Reset link sent to your email!')
          })
          .catch((error) => {
             console.error(error)
-            alert('Failed to send reset email.')
+
+            toast.error('Failed to send reset email!')
          })
    }
    return (

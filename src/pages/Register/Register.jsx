@@ -2,6 +2,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import registerImg from '../../assets/3783954-ezgif.com-webp-to-jpg-converter.jpg'
 import { useContext, useState } from 'react'
 import { AuthContext } from '../../provider/AuthProvider'
+import { toast } from 'react-toastify'
 
 const Register = () => {
    const { handleGoogleLogin, setUser, handleRegister, handleProfile } =
@@ -51,7 +52,8 @@ const Register = () => {
             const user = result.user
             setUser(user)
             handleProfile({ displayName: name, photoURL: photo })
-            alert('Account has successfully created')
+
+            toast.success('Account has successfully created!')
             navigate('/')
             // console.log(user)
          })

@@ -1,7 +1,8 @@
 import { useContext } from 'react'
 import { Link, NavLink, useNavigate } from 'react-router-dom'
 import { AuthContext } from '../../provider/AuthProvider'
-import UpdateProfileModal from '../UpdateProfileModal/UpdateProfileModal'
+
+import { toast } from 'react-toastify'
 
 const Navbar = () => {
    const { user, logOut, setUser } = useContext(AuthContext)
@@ -11,12 +12,14 @@ const Navbar = () => {
       logOut()
          .then(() => {
             setUser(null)
-            alert('Log-out success full')
+
+            toast.success('Log-out successfully!')
             navigate('/')
          })
          .catch((error) => {
             console.error(error)
-            alert('Failed to log out. Please try again.')
+
+            toast.error('Failed to log out. Please try again.')
          })
    }
    const links = (
