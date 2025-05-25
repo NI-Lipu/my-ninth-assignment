@@ -1,3 +1,4 @@
+import { HiSpeakerWave } from 'react-icons/hi2'
 import Modal from '../Modal/Modal'
 
 const LessonCard = ({ singleData }) => {
@@ -14,6 +15,12 @@ const LessonCard = ({ singleData }) => {
       word,
    } = singleData
    // console.log(params)
+
+   const handlePronunciation = () => {
+      const utterance = new SpeechSynthesisUtterance(word)
+      utterance.lang = 'ja-JP'
+      speechSynthesis.speak(utterance)
+   }
    return (
       <div
          className={`${
@@ -25,7 +32,16 @@ const LessonCard = ({ singleData }) => {
          } card `}
       >
          <div className="card-body">
-            <p className="card-title text-lg font-bold">Word: {word}</p>
+            <div className="flex items-center">
+               {' '}
+               <p className="card-title text-lg font-bold">Word: {word}</p>
+               <HiSpeakerWave
+                  onClick={handlePronunciation}
+                  className="cursor-pointer"
+                  size={30}
+               />
+            </div>
+
             <p className="text-base">
                <span className="font-medium text-base">Meaning:</span> {meaning}
             </p>

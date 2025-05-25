@@ -1,6 +1,5 @@
 import { Link, useLoaderData, useLocation } from 'react-router-dom'
 import LessonCard from '../../components/LessonCard/LessonCard'
-import Modal from '../../components/Modal/Modal'
 
 const Lesson = () => {
    const data = useLoaderData()
