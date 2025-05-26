@@ -37,7 +37,7 @@ const Navbar = () => {
       </>
    )
    return (
-      <div className="navbar py-5  md:px-8 bg-blue-950 text-white">
+      <div className="navbar py-5 pr-3  md:px-8 bg-blue-950 text-white">
          <div className="navbar-start">
             <div className="dropdown">
                <div
@@ -67,7 +67,9 @@ const Navbar = () => {
                   {links}
                </ul>
             </div>
-            <a className="btn btn-ghost text-xl">Lingo Bingo</a>
+            <Link to={'/'} className="btn  btn-ghost text-xl">
+               Lingo Bingo
+            </Link>
          </div>
          <div className="navbar-center hidden lg:flex">
             <ul className="menu menu-horizontal px-1">{links}</ul>
@@ -75,7 +77,9 @@ const Navbar = () => {
          <div className="navbar-end">
             {user ? (
                <div className="flex items-center gap-2">
-                  <p className="font-medium text-lg">Hi, {user.displayName}</p>
+                  <p className="font-medium hidden md:block text-lg">
+                     Hi, {user.displayName}
+                  </p>
                   <div className="dropdown">
                      <div tabIndex={0} className="cursor-pointer">
                         <img
