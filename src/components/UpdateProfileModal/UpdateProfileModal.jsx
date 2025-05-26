@@ -9,7 +9,7 @@ const UpdateProfileModal = () => {
       e.preventDefault()
       const name = e.target.name.value
       const photo = e.target.photo.value
-      // console.log(name, photo)
+      //
       handleProfile({ displayName: name, photoURL: photo })
          .then(() => {
             toast.success('Profile updated successfully!')

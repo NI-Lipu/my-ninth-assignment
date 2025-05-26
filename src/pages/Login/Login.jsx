@@ -16,7 +16,6 @@ const Login = () => {
    const location = useLocation()
    const navigate = useNavigate()
    const emailRef = useRef()
-   // console.log(location.state)
 
    // GoogleLogin
    const GoogleLogin = () => {
@@ -32,7 +31,7 @@ const Login = () => {
          })
          .catch((error) => {
             const errorMessage = error.errorMessage
-            console.log(errorMessage)
+            console.error(errorMessage)
          })
    }
 

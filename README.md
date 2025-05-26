@@ -1,12 +1,49 @@
-# React + Vite
+# MY-NINTH-ASSIGNMENT
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Assignment Category:** 003
+**Language Chosen:** Japanese
+**Framework & Tools Used:** React, Vite, Firebase Authentication and Deployment, React Router, Tailwind Css, DaisyUi.
 
-Currently, two official plugins are available:
+## 🕸 Live Website
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+[Visit Live Site-1](https://my-ninth-assignment-c9b53.web.app/)
+[Visit Live Site-2](https://my-ninth-assignment-c9b53.firebaseapp.com/)
 
-## Expanding the ESLint configuration
+## 📂 GitHub Repository
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+[GitHub Repo](https://github.com/NI-Lipu/my-ninth-assignment)
+
+## 📽 Project Purpose
+
+Lingo Bingo is a fun and interactive vocabulary learning application aimed at helping users learn new languages efficiently. It provides a structured lesson plan, engaging tutorials, and personalized user experience.
+
+The app supports vocabulary learning in **Japanese** and is designed for easy and effective memorization.
+
+## 🔑 Key Features
+
+-  🔐 User Authentication (Email/Password & Google Login) via Firebase
+-  📚 Vocabulary Learning through 10 structured lessons
+-  🎥 Embedded YouTube tutorials
+-  📈 Animated counters for user stats using `react-countup`
+-  🧩 Responsive single-page design with React Router
+-  🧠 JSON-based vocabulary content with rich metadata
+-  🗣️ "Speak the Word" feature using the Web Speech API
+-  🔄 Protected routes with proper redirection after reload
+-  📤 Environment variables used for securing Firebase config
+-  📱 Fully Responsive across mobile, tablet, and desktop
+
+## 📦 NPM Packages Used
+
+-  react
+
+-  react-dom
+
+-  react-router-dom
+
+-  firebase
+
+-  react-countup
+
+-  daisyui
+
+-  tailwindcss

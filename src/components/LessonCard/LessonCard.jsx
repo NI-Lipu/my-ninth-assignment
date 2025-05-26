@@ -14,7 +14,6 @@ const LessonCard = ({ singleData }) => {
       when_to_say,
       word,
    } = singleData
-   // console.log(params)
 
    const handlePronunciation = () => {
       const utterance = new SpeechSynthesisUtterance(word)

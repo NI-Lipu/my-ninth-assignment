@@ -10,8 +10,7 @@ const Modal = ({ singleData }) => {
       when_to_say,
       word,
    } = singleData
-   // console.log([singleData])
-   // console.log(id)
+
    return (
       <div>
          <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">

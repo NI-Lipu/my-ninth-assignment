@@ -20,7 +20,7 @@ const Register = () => {
          })
          .catch((error) => {
             const errorMessage = error.errorMessage
-            console.log(errorMessage)
+            console.error(errorMessage)
          })
    }
 
@@ -31,7 +31,6 @@ const Register = () => {
       const email = e.target.email.value
       const photo = e.target.photo.value
       const password = e.target.password.value
-      // console.log(name, email, photo, password)
 
       setError('')
       if (password.length < 6) {
@@ -55,7 +54,6 @@ const Register = () => {
 
             toast.success('Account has successfully created!')
             navigate('/')
-            // console.log(user)
          })
          .catch((error) => {
             const errorMessage = error.message
@@ -65,7 +63,7 @@ const Register = () => {
             ) {
                setError('The email has already used!')
             }
-            console.log(errorMessage)
+            console.error(errorMessage)
          })
    }
    return (
