@@ -108,7 +108,7 @@ const Navbar = () => {
                                     .getElementById('my_modal_6')
                                     .showModal()
                               }
-                              className="block mt-2 mx-auto text-blue-400 text-sm"
+                              className="block bg-blue-900 font-medium rounded-md py-1 px-2 text-white mt-2 mx-auto text-sm"
                            >
                               Update profile
                            </button>
@@ -116,7 +116,7 @@ const Navbar = () => {
                            <Link to={'/'}>
                               <button
                                  onClick={handleLogout}
-                                 className="mt-3 bg-red-600 hover:bg-red-700 px-4 py-1 rounded text-white text-sm"
+                                 className="mt-3 bg-red-600 hover:bg-red-700 px-4 py-1 rounded font-medium text-white text-sm"
                               >
                                  Sign Out
                               </button>

@@ -55,7 +55,7 @@ const UpdateProfileModal = () => {
                         />
                      </div>
                      <div className="form-control mt-6">
-                        <button className="btn btn-primary">Update</button>
+                        <button className="btn">Update</button>
                      </div>
                   </form>
                </div>
