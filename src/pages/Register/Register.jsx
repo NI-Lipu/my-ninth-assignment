@@ -3,6 +3,7 @@ import registerImg from '../../assets/3783954-ezgif.com-webp-to-jpg-converter.jp
 import { useContext, useState } from 'react'
 import { AuthContext } from '../../provider/AuthProvider'
 import { toast } from 'react-toastify'
+import { FcGoogle } from 'react-icons/fc'
 
 const Register = () => {
    const { handleGoogleLogin, setUser, handleRegister, handleProfile } =
@@ -150,6 +151,7 @@ const Register = () => {
                   </form>
                   <div className="ml-6 flex pr-7 flex-col">
                      <button onClick={GoogleLogin} className="btn w-full ">
+                        <FcGoogle />
                         Register with Google
                      </button>
                      <Link to={'/login'} className="text-center mt-2">

@@ -3,6 +3,7 @@ import loginImg from '../../assets/login.jpg'
 import { useContext, useRef, useState } from 'react'
 import { AuthContext } from '../../provider/AuthProvider'
 import { toast } from 'react-toastify'
+import { FcGoogle } from 'react-icons/fc'
 // import { useRef } from 'react'
 
 const Login = () => {
@@ -142,6 +143,7 @@ const Login = () => {
                   </form>
                   <div className="ml-6 mr-14">
                      <button onClick={GoogleLogin} className="btn w-full">
+                        <FcGoogle />
                         Login with Google
                      </button>
                      <Link to={'/register'} className="text-center block mt-4">
