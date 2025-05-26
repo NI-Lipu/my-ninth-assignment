@@ -152,7 +152,7 @@ const Register = () => {
                   <div className="ml-6 flex pr-7 flex-col">
                      <button onClick={GoogleLogin} className="btn w-full ">
                         <FcGoogle />
-                        Register with Google
+                        Login with Google
                      </button>
                      <Link to={'/login'} className="text-center mt-2">
                         have an account?

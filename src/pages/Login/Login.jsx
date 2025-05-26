@@ -124,7 +124,7 @@ const Login = () => {
                         <label className="label">
                            <Link
                               onClick={handleForgotPassword}
-                              className="label-text-alt text-black link link-hover"
+                              className="label-text-alt underline text-blue-800 font-medium mt-2 link link-hover"
                            >
                               Forgot password?
                            </Link>
