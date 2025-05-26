@@ -12,7 +12,7 @@ const AboutUs = () => {
             <div className="hero-content md:gap-10 flex-col lg:flex-row">
                <img src={about1} className="md:max-w-lg rounded-lg " />
                <div>
-                  <h1 className="text-5xl font-bold">About Us</h1>
+                  <h1 className="text-3xl md:text-5xl font-bold">About Us</h1>
                   <p className="py-6">
                      We are dedicated to making Japanese vocabulary learning
                      fun, simple, and effective by providing an easy-to-use
