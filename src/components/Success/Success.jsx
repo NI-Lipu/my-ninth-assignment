@@ -1,8 +1,14 @@
 import CountUp from 'react-countup'
+import { useInView } from 'react-intersection-observer'
 
 const Success = () => {
+   const { ref, inView } = useInView({
+      triggerOnce: true,
+      threshold: 0.3,
+   })
+
    return (
-      <div className="mb-20 mt-20 max-w-7xl mx-auto ">
+      <div ref={ref} className="mb-20 mt-20 max-w-7xl mx-auto ">
          <h2 className="font-bold text-3xl text-center mb-7 underline">
             Success
          </h2>
@@ -12,7 +18,7 @@ const Success = () => {
                   Total Users
                </div>
                <div className="text-white stat-value">
-                  <CountUp end={31000} duration={4} separator="," />
+                  {inView && <CountUp end={31000} duration={4} separator="," />}
                </div>
             </div>
 
@@ -21,7 +27,7 @@ const Success = () => {
                   Lesson
                </div>
                <div className="stat-value text-secondary">
-                  <CountUp end={10} duration={4} separator="," />
+                  {inView && <CountUp end={10} duration={4} separator="," />}
                </div>
             </div>
 
@@ -30,7 +36,7 @@ const Success = () => {
                   Vocabulary
                </div>
                <div className="text-white stat-value">
-                  <CountUp end={300} duration={4} separator="," />
+                  {inView && <CountUp end={300} duration={4} separator="," />}
                </div>
             </div>
 
@@ -39,7 +45,7 @@ const Success = () => {
                   Tutorials
                </div>
                <div className="stat-value text-secondary">
-                  <CountUp end={300} duration={4} separator="," />
+                  {inView && <CountUp end={300} duration={4} separator="," />}
                </div>
             </div>
          </div>

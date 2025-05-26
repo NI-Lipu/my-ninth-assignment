@@ -37,7 +37,7 @@ const Navbar = () => {
       </>
    )
    return (
-      <div className="navbar py-5 px-8 bg-blue-950 text-white">
+      <div className="navbar py-5  md:px-8 bg-blue-950 text-white">
          <div className="navbar-start">
             <div className="dropdown">
                <div
@@ -98,16 +98,16 @@ const Navbar = () => {
                            </h3>
                            <p className="text-sm">{user?.email}</p>
                            <hr className="my-2 border-gray-600" />
-                           <Link
+                           <button
                               onClick={() =>
                                  document
                                     .getElementById('my_modal_6')
                                     .showModal()
                               }
-                              className="block mt-2 text-blue-400 text-sm"
+                              className="block mt-2 mx-auto text-blue-400 text-sm"
                            >
                               Update profile
-                           </Link>
+                           </button>
 
                            <Link to={'/'}>
                               <button

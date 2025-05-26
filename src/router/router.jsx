@@ -1,10 +1,10 @@
-import { createBrowserRouter, data } from 'react-router-dom'
+import { createBrowserRouter } from 'react-router-dom'
 import MainLayout from '../layouts/MainLayout'
 import Home from '../pages/Home/Home'
 import AboutUs from '../pages/AboutUs/AboutUs'
 import Learn from '../pages/Learn/Learn'
 import Lesson from '../pages/Lesson/Lesson'
-import Modal from '../components/Modal/Modal'
+
 import Login from '../pages/Login/Login'
 import Register from '../pages/Register/Register'
 import PrivetRoute from './PrivetRoute'
